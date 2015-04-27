@@ -1,0 +1,20 @@
+<%= form_for @topic do |f| %>
+
+<class class="field">
+  <%= f.label      :title %>
+  <%= f.text_field :title %>
+</class>
+
+<div class="field">
+  <%= f.label     :body %>
+  <%= f.text_area :body %>
+</div>
+
+<div class="action">
+  <%= f.submit %>
+  <span>or</span>
+  <%= link_to "Cancel", root_path %>
+</div>
+
+
+<% end -%>

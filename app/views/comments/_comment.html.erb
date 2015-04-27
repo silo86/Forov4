@@ -1,0 +1,31 @@
+
+<% unless comment.new_record? %>
+
+<div class="comment">
+
+  <div class="comment-content">
+    <br>
+    <li>
+      <p><%= comment.user.email %> said:</p>
+      <p><%= comment.body %></p>
+
+
+      
+      <% unless current_user && current_user.already_flagged?(comment) %>
+                                    
+            <%= link_to "Report", flags_path(@topic, id: comment, type: "flag"), method: :put , class: "waves-effect waves-light btn" %>
+              <% else %>
+              <%= link_to "Unreport", flags_path(@topic, id: comment, type: "unflag"), method: :put %>
+            <% end -%>
+      <p class="comment-detail"><%= time_ago_in_words(comment.created_at) %> ago</p>
+    </li>
+    <%# unless @comment.flagged_at? %>
+      <%#= link_to "Un-Flag", unflag_topic_comment_path, method: :put, data: {confirm: "Are you sure man?" } %>
+      <%# else %>
+        <%#= link_to "Flag", [:flag, :topic, :comment], method: :put, data: {confirm: "Are you sure man?" } %>
+    <%# end -%>
+    <br>
+  </div>
+</div>
+
+<% end -%>

@@ -1,0 +1,9 @@
+
+<%= form_for [@topic, @comment] do |f| %>
+
+  <div class="field">
+  <%= f.label     "Write your opinion" %> <br>
+  <%= f.text_area :body %>
+  </div>
+  <%= f.submit "Comment" %>
+<% end -%>
