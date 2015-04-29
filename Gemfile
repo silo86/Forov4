@@ -44,5 +44,10 @@ group :development, :test do
   gem 'devise'
   gem 'activeadmin', github: 'activeadmin'
   gem 'better_errors'
+  group :production do
+    gem 'pg'
+    gem 'puma'
+    gem 'rails_12factor'
+	end
 end
 

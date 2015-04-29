@@ -4,13 +4,41 @@
   <title>Forov4</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/bootstrap.min.css">
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+ <nav class="navbar navbar-default" role="navigation">
+       <div class="navbar-header">
+         <ul class="nav navbar-nav">
+           <li class="active">
+           <%= link_to "Home", root_path %>
+           </li>
+           <li class="active">
+           <%= link_to "Topics", topics_path %>
+           </li>
+         </ul>
 
-<%= yield %>
+        </div>
+         <ul class="nav navbar-nav navbar-right">
+         <li class="active">
+         <%unless user_signed_in?%>
+           <%=link_to "Log In", new_user_registration_path %>
+           <% else %>
+           <%=link_to "Log out", destroy_user_session_path, method: :delete %>
+           <% end -%>
+         </li>
+         </ul>
+  </nav>   
+         <div class= "container-fluid">
+          <div class="col-md-12">
+              <p class="notice"><%= notice %></p>
+                   <p class="alert"><%= alert %></p>
+                   
 
+            <%= yield %>
+          </div>  
+        </div>
 </body>
 </html>

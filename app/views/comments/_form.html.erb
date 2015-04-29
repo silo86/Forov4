@@ -3,7 +3,8 @@
 
   <div class="field">
   <%= f.label     "Write your opinion" %> <br>
-  <%= f.text_area :body %>
+  <%= f.text_area  :body, row: "20", cols: "90" %>
   </div>
-  <%= f.submit "Comment" %>
+<%= f.submit "Comment" %>
+  
 <% end -%>

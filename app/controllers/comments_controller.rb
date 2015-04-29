@@ -9,7 +9,8 @@ def update
 redirect_to topic_path(@topic)
 end
 def show
-	@comment = Comment.find(params[:comment_id])
+#	@comment = Comment.find(params[:comment_id])
+#	@comment = Comment.find(params[:id])
 end
 
 #def flag
@@ -31,7 +32,12 @@ end
 # end
 
 def new
-@comment = current_user.comments.new
+	@comment = current_user.comments.new
+end
+def destroy
+	@comment= Comment.find(params[:id])
+	@comment.destroy
+	redirect_to @topic
 end
 
 private

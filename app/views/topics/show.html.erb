@@ -1,6 +1,7 @@
-
-<h2><%= @topic.title %></h2>
-<p><%= @topic.body %></p>
+<div class="well">
+		<h2><%= @topic.title %></h2>
+		<p><%= @topic.body %></p>
+</div>
     <% unless current_user && current_user.already_favorited?(@topic) %>
 
           <%= link_to "Favorite", favorite_path(@topic, type: "favorite"), method: :put , class: "waves-effect waves-light btn" %>

@@ -5,7 +5,7 @@
 
   <div class="comment-content">
     <br>
-    <li>
+    <li class="well">
       <p><%= comment.user.email %> said:</p>
       <p><%= comment.body %></p>
 
@@ -18,6 +18,11 @@
               <%= link_to "Unreport", flags_path(@topic, id: comment, type: "unflag"), method: :put %>
             <% end -%>
       <p class="comment-detail"><%= time_ago_in_words(comment.created_at) %> ago</p>
+      <% if current_user.admin %>
+      <%= link_to "delete", topic_comment_path(@topic, id: comment) , method: :delete %>
+      <% else %>
+      <% end -%>
+
     </li>
     <%# unless @comment.flagged_at? %>
       <%#= link_to "Un-Flag", unflag_topic_comment_path, method: :put, data: {confirm: "Are you sure man?" } %>
