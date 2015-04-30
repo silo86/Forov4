@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 	before_action :authenticate_user!
 before_action :get_current_topic
 
-def update
+def create
 @comment = current_user.comments.create(comment_params)
 @comment.topic_id = @topic.id
 @comment.save
