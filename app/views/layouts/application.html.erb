@@ -19,7 +19,7 @@
            <%= link_to "Topics", topics_path %>
            </li>
            <li>
-           <% if current_user.admin? %>
+           <% if current_user && current_user.admin? %>
             <%=link_to "New Topic", new_topic_path %>
             <% end -%> 
            </li>
@@ -36,7 +36,7 @@
            <% end -%>
            </li>
            <li class="active marginright">
-           <% if current_user.admin? %>
+           <% if current_user && current_user.admin? %>
             <%=link_to "Users" , adminpanels_index_path %>
             <% end -%>
             </li>

@@ -18,7 +18,7 @@
               <%= link_to "Unreport", flags_path(@topic, id: comment, type: "unflag"), method: :put %>
             <% end -%>
       <p class="comment-detail"><%= time_ago_in_words(comment.created_at) %> ago</p>
-      <% if current_user.admin %>
+      <% if current_user && current_user.admin? %>
       <%= link_to "delete", topic_comment_path(@topic, id: comment) , method: :delete %>
       <% else %>
       <% end -%>

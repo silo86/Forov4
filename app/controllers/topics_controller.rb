@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
 	before_action :authenticate_user!, except: [:index,:show]	
 def create
-	if current_user.admin?
+	if current_user && current_user.admin?
 		@topic = current_user.topics.build(topic_params)
 		unless @topic.save
 			redirect_to topics_path, notice:"no"
