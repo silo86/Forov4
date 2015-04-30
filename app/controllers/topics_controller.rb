@@ -26,7 +26,7 @@ def show
 
 @topic = Topic.find(params[:id])
 @comment = @topic.comments.new
-@comment = Comment.find(params[:id])
+#@comment = Comment.find(params[:id])
 end
 
 
