@@ -3,4 +3,6 @@ class Topic < ActiveRecord::Base
   has_many :comments
   has_many :favorites
   has_many :favoriters ,through: :favorites , source: :user
+
+
 end

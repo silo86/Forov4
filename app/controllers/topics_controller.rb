@@ -19,6 +19,7 @@ end
 
 def index
 @topics = Topic.all
+#@topics = Topic.search(params[:search])
 end
 
 def show

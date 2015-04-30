@@ -18,17 +18,29 @@
            <li class="active">
            <%= link_to "Topics", topics_path %>
            </li>
+           <li>
+           <% if current_user.admin? %>
+            <%=link_to "New Topic", new_topic_path %>
+            <% end -%> 
+           </li>
          </ul>
 
         </div>
          <ul class="nav navbar-nav navbar-right">
          <li class="active">
          <%unless user_signed_in?%>
+
            <%=link_to "Log In", new_user_registration_path %>
            <% else %>
            <%=link_to "Log out", destroy_user_session_path, method: :delete %>
            <% end -%>
-         </li>
+           </li>
+           <li class="active marginright">
+           <% if current_user.admin? %>
+            <%=link_to "Users" , adminpanels_index_path %>
+            <% end -%>
+            </li>
+         
          </ul>
   </nav>   
          <div class= "container-fluid">
